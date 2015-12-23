@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bem vindo <%= @to.name %></h1>
+    <p>
+      Quero te ajudar com o curso de <%= @to.current_course.name %> em <%= @to.current_course.time_limit %> semanas.
+    </p>
+    <p><%= @from.name %></p>
+  </body>
+</html>

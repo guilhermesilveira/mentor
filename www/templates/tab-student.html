@@ -1,0 +1,42 @@
+<ion-view view-title="Minha carreira">
+  <ion-content class="padding">
+    <div class="list card">
+      <div class="item item-divider">{{user.course.name}}</div>
+      <div class="item item-body">
+        <div ng-hide="user.course.finishedAtDate!=nil">
+          Lembre-se, {{user.course.time_missing}}<br/><br/>
+        </div>
+        <div ng-hide="user.course.finishedAtDate==nil">
+          Parabéns! Você terminou o curso {{user.course.lastStudiedAtDate}} atrás.
+        </div>
+        <div ng-hide="user.course.hasAHardTime">
+          Você já teve dificuldade neste curso.
+        </div>
+        <div ng-hide="user.course.lastStudiedAtDate==nil">
+          Você continuou seus estudos a última vez {{user.course.lastStudiedAtDate}} atrás.
+        </div>
+        <div ng-hide="user.course.startedAtDate==nil">
+          Você começou o curso {{user.course.startedAtDate}} atrás.
+        </div>
+      </div>
+    </div>
+    <div class="list card" ng-hide="user.course.finishedAtDate!=nil">
+      <div class="item item-divider">Ações</div>
+      <div class="item item-body">
+          <button class="button button-balanced button-full" ng-click="talk('started')" ng-hide="user.course.startedAtDate!=nil || user.course.finishedAtDate!=nil">Iniciar</button>
+          <button class="button button-calm button-full" ng-click="talk('studied')" ng-hide="user.course.startedAtDate==nil || user.course.finishedAtDate!=nil">Estudei um pouco</button>
+          <button class="button button-assertive button-full" ng-click="talk('havingAHardTime')" ng-hide="user.course.startedAtDate==nil">Estou com dificuldade, mentor me ajude</button>
+          <button class="button button-balanced button-full" ng-click="talk('finished')" ng-hide="user.course.startedAtDate==nil || user.course.finishedAtDate!=nil">Terminei</button>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item item-divider">Mentor: {{user.mentor.name}}</div>
+      <div class="item item-body">
+        <div>
+          <img src="{{user.mentor.gravatar}}"/>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

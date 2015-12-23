@@ -1,0 +1,40 @@
+<ion-view view-title="Perfil">
+  <ion-content>
+    <ion-list>
+    <ion-toggle  ng-model="settings.notificationSound">
+        Notificação com som
+    </ion-toggle>
+    <ion-toggle  ng-model="settings.notificationVibrate">
+        Notificação vibra
+    </ion-toggle>
+
+    <div class="item item-text-wrap">
+    Você assumiu um compromisso com seu mentor e seus pupilos, seu mentor se dedica a você, lembre-se de dedicar seu tempo a carreira de voces, por isso as notificacoes serao sempre enviadas, podendo desativar o som e a vibracao.
+    </div>
+
+      <ion-item>
+        <label class="item item-input">
+          <input type="text" placeholder="Melhor horário para mentoria" ng-model="settings.mentorTime" value="{{settings.mentorTime}}">
+        </label>
+        <div class="item item-text-wrap">
+        Você será lembrado diariamente as {{settings.mentorTime}} para revisar o estudo de seus pupilos.
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <label class="item item-input">
+          <input type="text" placeholder="Melhor horário para estudar" ng-model="settings.studyTime" value="{{settings.studyTime}}">
+        </label>
+        <div class="item item-text-wrap">
+        Você estudará diariamente das {{settings.studyTime}} as {{settings.studyTime+1}}.
+        </div>
+      </ion-item>
+
+
+      <ion-item>
+          <button class="button button-calm button-full" ng-click="logout()">Sair da minha conta</button>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

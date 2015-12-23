@@ -1,0 +1,25 @@
+<ion-view view-title="Pupilos">
+  <ion-content>
+    <ion-refresher
+      pulling-text="Deslize para atualizar..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list>
+
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap">
+        <img ng-src="{{chat.user.gravatar}}">
+        <h2>{{chat.user.name}}</h2>
+        <p>{{chat.course.name}} - {{chat.status}}</p>
+      </ion-item>
+
+      <ion-item href="#/newPupil" ng-hide="brokeChatLimit()" >
+        Novo pupilo ({{chats.length < 4 ? (5 - chats.length) + " convites restantes" : "último convite disponível"}})
+      </ion-item>
+      
+      <ion-item ng-hide="!brokeChatLimit()" >
+        Limite de pupilos convidados. Apoie seus pupilos atuais :)
+      </ion-item>
+      
+    </ion-list>
+  </ion-content>
+</ion-view>
